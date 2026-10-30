@@ -85,7 +85,7 @@ export const readableOn = (hex: string) => {
   return rgb && luminance(rgb) > 0.4 ? "#17171A" : "#FFFFFF";
 };
 
-// ── Perceptual distance (CIE76 in Lab — good enough for matching swatches) ──
+// ── Perceptual distance (CIE76 in Lab, good enough for matching swatches) ──
 function rgbToLab({ r, g, b }: RGB) {
   const lin = (c: number) => {
     const x = c / 255;
@@ -110,9 +110,9 @@ export function deltaE(hexA: string, hexB: string) {
 export type HarmonyKind = "complementary" | "analogous" | "triadic" | "monochromatic";
 
 export const HARMONY_LABELS: Record<HarmonyKind, { title: string; blurb: string }> = {
-  complementary: { title: "Complementary", blurb: "Opposites on the wheel — maximum contrast and energy." },
+  complementary: { title: "Complementary", blurb: "Opposites on the wheel: maximum contrast and energy." },
   analogous: { title: "Analogous", blurb: "Neighbours that flow into each other, calm and cohesive." },
-  triadic: { title: "Triadic", blurb: "Three evenly spaced hues — bold, balanced, playful." },
+  triadic: { title: "Triadic", blurb: "Three evenly spaced hues: bold, balanced, playful." },
   monochromatic: { title: "Monochromatic", blurb: "One hue explored from light tint to deep shade." },
 };
 

@@ -1,5 +1,5 @@
 /**
- * ReShade product catalogue — THE single place to configure what can be sold.
+ * ReShade product catalogue: THE single place to configure what can be sold.
  *
  * ⚠️  No confirmed catalogue, sizes or prices were supplied with the source
  * presentations. Everything below is therefore marked `status: "development"`
@@ -95,7 +95,7 @@ const DEMO_VARIANTS: Variant[] = [
 
 const DEMO_PRODUCTS: Product[] = DEVELOPMENT_PRODUCTS.map((p, i) => ({
   ...p,
-  description: "TEST PRODUCT — demo mode only. Not a real ReShade listing.",
+  description: "TEST PRODUCT: demo mode only. Not a real ReShade listing.",
   status: "available",
   availability: i === 5 ? "sold_out" : i === 2 ? "limited" : "in_stock",
   variants: DEMO_VARIANTS.map((v) => ({ ...v, id: `${p.id}-${v.id}` })),

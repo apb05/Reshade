@@ -9,6 +9,7 @@ import { useStudio } from "@/store/studio";
 import { useCart } from "@/store/cart";
 import { PaintBottle } from "@/components/shop/PaintBottle";
 import { Button } from "@/components/ui/Button";
+import { FEATURES } from "@/data/site";
 
 const config = getShopConfig();
 const FAMILY_LABEL: Record<ColourFamily, string> = {
@@ -65,7 +66,7 @@ function ProductCard({ product: p }: { product: Product }) {
   const variant = p.variants.find((v) => v.id === variantId) ?? p.variants[0];
   const add = useCart((s) => s.add);
   const purchasable = isPurchasable(p);
-  const canPersonalise = purchasable && p.personalisation.label;
+  const canPersonalise = FEATURES.customLabels && purchasable && p.personalisation.label;
 
   const openInStudio = () => {
     const hsv = hexToHsv(p.hex);
@@ -105,12 +106,12 @@ function ProductCard({ product: p }: { product: Product }) {
                 <label className="block text-xs font-semibold">
                   <span className="sr-only">Size for {p.name}</span>
                   <select value={variantId} onChange={(e) => setVariantId(e.target.value)} className="field !py-2 text-sm">
-                    {p.variants.map((v) => <option key={v.id} value={v.id}>{v.size} — {formatPrice(v.priceCents, config.currency)}</option>)}
+                    {p.variants.map((v) => <option key={v.id} value={v.id}>{v.size} · {formatPrice(v.priceCents, config.currency)}</option>)}
                   </select>
                 </label>
               )}
               <Button variant="navy" className="w-full" onClick={() => add({ productId: p.id, variantId: variant.id, qty: 1, hex: p.hex, name: p.name, message: "", personalised: false })}>
-                Add to cart<span className="sr-only"> — {p.name}</span>
+                Add to cart<span className="sr-only">: {p.name}</span>
               </Button>
             </>
           ) : (
@@ -119,7 +120,7 @@ function ProductCard({ product: p }: { product: Product }) {
             </Button>
           )}
           <button type="button" onClick={openInStudio} className="w-full rounded-full py-2 text-sm font-semibold text-navy underline decoration-yellow decoration-[3px] underline-offset-4 transition hover:decoration-navy">
-            {canPersonalise ? "Love this shade? Make it yours." : "Love this shade? Start a custom request from it."}
+            {canPersonalise ? "Love this shade? Make it yours." : purchasable ? "Love this shade? Explore it in the colour studio." : "Love this shade? Start a custom request from it."}
           </button>
         </div>
       </div>

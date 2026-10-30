@@ -29,7 +29,7 @@ export function Creativity() {
           </h2>
           <Reveal delay={0.1}>
             <p className="mt-8 text-lede text-ink-soft">
-              Artists are where ReShade starts. They use paints and pigments every day, so they’re the right people to tell us what works. We’re testing and refining our paints with them — on colour, quality, consistency, price and ease of use.
+              Artists are where ReShade starts. They use paints and pigments every day, so they’re the right people to tell us what works. We’re testing and refining our paints with them on colour, quality, consistency, price and ease of use.
             </p>
             <p className="mt-5 text-lede text-ink-soft">
               Environmental responsibility and artistic expression aren’t opposites. A colour that was nearly thrown away can end up in someone’s best work.
@@ -40,7 +40,7 @@ export function Creativity() {
               <PaintStroke className="absolute -top-3 left-6 h-5 w-32" color="var(--color-red)" variant={1} />
               <p className="eyebrow text-navy">What’s next</p>
               <p className="mt-2 font-display text-2xl font-bold text-navy">One artist project per month.</p>
-              <p className="mt-2 text-ink-soft">Our goal: collaborate with an artist each month to test ReShade and gather feedback on quality, colours, usability and applications. Artists are needed — get in touch.</p>
+              <p className="mt-2 text-ink-soft">Our goal: collaborate with an artist each month to test ReShade and gather feedback on quality, colours, usability and applications. Artists are needed, so get in touch.</p>
             </div>
           </Reveal>
         </div>

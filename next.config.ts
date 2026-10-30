@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 /**
  * Two deployment modes:
- *  • Server (default) — `next build && next start`, or Vercel etc. Includes the
+ *  • Server (default): `next build && next start`, or Vercel etc. Includes the
  *    API routes (form delivery, Stripe checkout) and the order-confirmation page.
- *  • Static export — set NEXT_PUBLIC_STATIC_EXPORT=true (used for GitHub Pages).
+ *  • Static export: set NEXT_PUBLIC_STATIC_EXPORT=true (used for GitHub Pages).
  *    Server-only files are named *.server.ts(x) and are excluded from this build.
  */
 const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";

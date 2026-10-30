@@ -23,7 +23,7 @@ export function MyCollection() {
     return (
       <div className="rounded-[2rem] border-2 border-dashed border-ink/15 px-6 py-14 text-center">
         <p className="font-serif text-3xl italic">Your collection is waiting for its first colour.</p>
-        <p className="mx-auto mt-3 max-w-md text-ink-soft">Create a shade in the studio and choose “Save to My Colour Collection”. Creations are saved on this device — no account needed.</p>
+        <p className="mx-auto mt-3 max-w-md text-ink-soft">Create a shade in the studio and choose “Save to My Colour Collection”. Creations are saved on this device, no account needed.</p>
         <a href="#studio" className="mt-6 inline-block font-semibold text-navy underline decoration-yellow decoration-4 underline-offset-4">Create my first colour</a>
       </div>
     );

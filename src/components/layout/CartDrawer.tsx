@@ -79,7 +79,7 @@ export function CartDrawer() {
       }
       setStatus({ kind: "error", message: data.error ?? "Checkout couldn’t start. Please try again." });
     } catch {
-      setStatus({ kind: "error", message: "Network error — please check your connection and try again." });
+      setStatus({ kind: "error", message: "Network error. Please check your connection and try again." });
     }
   }
 

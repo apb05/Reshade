@@ -41,14 +41,14 @@ export const STATS: Stat[] = [
     suffix: "+",
     label: "People directly reached",
     detail: "Through awareness events, paint nights and community outreach.",
-    source: "ReShade Info Session deck — “Impact So Far”.",
+    source: "ReShade Info Session deck, “Impact So Far”.",
   },
   {
     id: "suppliers",
     value: 150,
     label: "Suppliers engaged in green business practices",
     detail: "Businesses engaged through ReShade’s supplier outreach. Engagement is not the same as a formal partnership.",
-    source: "ReShade Info Session deck — “Impact So Far”.",
+    source: "ReShade Info Session deck, “Impact So Far”.",
   },
   {
     id: "hours",

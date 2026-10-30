@@ -7,8 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { NAV, PARTNER_HREF } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { buttonClass } from "@/components/ui/Button";
-import { useCart } from "@/store/cart";
-import { useHydrated } from "@/components/layout/Providers";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -16,9 +14,6 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const hydrated = useHydrated();
-  const count = useCart((s) => s.lines.reduce((n, l) => n + l.qty, 0));
-  const setCartOpen = useCart((s) => s.setOpen);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -71,7 +66,7 @@ export function SiteHeader() {
             scrolled || open ? "border-ink/5 bg-paper/90 shadow-[0_10px_40px_-18px_rgba(0,24,56,0.45)] backdrop-blur-xl" : "border-ink/5 bg-paper/75 backdrop-blur-md"
           }`}
         >
-          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="ReShade Colours — home">
+          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="ReShade Colours home">
             <Logo className="h-11 w-auto" />
           </Link>
 
@@ -95,29 +90,6 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setCartOpen(true)}
-              className="relative grid size-11 place-items-center rounded-full text-navy transition hover:bg-navy/5"
-              aria-label={`Open cart${hydrated && count ? `, ${count} item${count === 1 ? "" : "s"}` : ""}`}
-            >
-              <svg aria-hidden viewBox="0 0 24 24" className="size-[22px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 7h12l-1 12.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 19.5L6 7Z" />
-                <path d="M9 7V5.5a3 3 0 0 1 6 0V7" />
-              </svg>
-              <AnimatePresence>
-                {hydrated && count > 0 && (
-                  <motion.span
-                    key={count}
-                    initial={{ scale: 0.4, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="absolute right-0.5 top-0.5 grid min-w-5 place-items-center rounded-full bg-red px-1 text-[0.68rem] font-bold leading-5 text-white"
-                  >
-                    {count}
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
             <Link href={PARTNER_HREF} className={buttonClass("navy", "sm", "hidden !h-11 !px-5 sm:inline-flex")} aria-current={isActive(PARTNER_HREF) ? "page" : undefined}>
               Become a Partner
             </Link>

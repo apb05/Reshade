@@ -11,9 +11,9 @@ import { LinkButton } from "@/components/ui/Button";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "Shop Paint — Create Your Own Colour",
+  title: "Shop Paint: Create Your Own Colour",
   description:
-    "Design a paint colour that’s entirely yours. Pick a shade on the interactive colour wheel, name it, give it meaning and see it on a personalised ReShade bottle — paint inspired by giving discarded cosmetics a second life.",
+    "Design a paint colour that’s entirely yours. Pick a shade on the interactive colour wheel, name it, give it meaning and see it come to life in a ReShade bottle: paint inspired by giving discarded cosmetics a second life.",
 };
 
 function SectionHead({ eyebrow, title, children, id }: { eyebrow: string; title: string; children?: React.ReactNode; id: string }) {
@@ -83,10 +83,10 @@ export default function ShopPage() {
       <section aria-labelledby="how-title" className="bg-paper py-20 sm:py-28">
         <div className="container-x">
           <h2 id="how-title" className="max-w-3xl font-display text-headline font-extrabold text-navy">Honest about what we can make.</h2>
-          <p className="mt-4 max-w-2xl text-lede text-ink-soft">The wheel can show millions of colours. Recovered cosmetic pigments can’t make all of them — so every creation follows one of two paths.</p>
+          <p className="mt-4 max-w-2xl text-lede text-ink-soft">The wheel can show millions of colours. Recovered cosmetic pigments can’t make all of them, so every creation follows one of two paths.</p>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {[
-              { tag: "Available", cls: "bg-green-soft text-green", title: "Confirmed colours", body: "Shades ReShade has confirmed it can produce, with confirmed sizes and prices. Personalise eligible paints and check out securely." },
+              { tag: "Available", cls: "bg-green-soft text-green", title: "Confirmed colours", body: "Shades ReShade has confirmed it can produce, with confirmed sizes and prices. Add them to your cart and check out securely." },
               { tag: "Request custom colour", cls: "bg-yellow-soft text-navy", title: "Custom shade requests", body: "Any other colour you design is sent to our team for a feasibility review. No payment is taken until production, price and fulfilment are confirmed." },
               { tag: "Unavailable", cls: "bg-red-soft text-red", title: "Not possible yet", body: "Some shades may not be achievable with recovered pigments today. We’ll say so clearly and suggest adjusting your colour." },
             ].map((c, i) => (
@@ -109,7 +109,7 @@ export default function ShopPage() {
             <p className="eyebrow text-yellow">The added purpose</p>
             <h2 className="mt-3 font-display text-headline font-extrabold">Personal by design. Purposeful by nature.</h2>
             <p className="mt-5 text-lede text-white/75">
-              ReShade paint starts life as discarded and expired makeup. We recover suitable pigments and give them a second life as art material — so the colour you create carries a story before you ever add yours.
+              ReShade paint starts life as discarded and expired makeup. We recover suitable pigments and give them a second life as art material, so the colour you create carries a story before you ever add yours.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <LinkButton href="#studio" variant="primary" arrow>Create My Paint</LinkButton>

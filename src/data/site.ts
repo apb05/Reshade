@@ -22,8 +22,21 @@ export const NAV = [
   { href: "/", label: "Home" },
   { href: "/our-story", label: "Our Story" },
   { href: "/our-impact", label: "Our Impact" },
-  { href: "/shop", label: "Shop Paint" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const PARTNER_HREF = "/become-a-partner";
+
+/**
+ * Launch switches for features that are built but not yet offered.
+ *
+ * customLabels: printing the customer's colour name and a personal message on
+ * the bottle label. Off for Version 1, which hides the label preview, the
+ * personal message field and label copy everywhere, and makes checkout reject
+ * label personalisation. Colour naming, stories and the colour studio are
+ * unaffected. Set to true (and set `personalisation` per product in
+ * catalogue.ts) to bring it back, e.g. for bulk or corporate orders.
+ */
+export const FEATURES = {
+  customLabels: false,
+};

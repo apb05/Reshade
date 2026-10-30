@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import { LinkButton } from "@/components/ui/Button";
+
+export const metadata: Metadata = { title: "Page not found", robots: { index: false }, alternates: { canonical: null } };
 
 export default function NotFound() {
   return (
@@ -9,7 +12,7 @@ export default function NotFound() {
         <p className="mx-auto mt-4 max-w-md text-lede text-ink-soft">The page you’re looking for has moved or never existed.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <LinkButton href="/" variant="navy" arrow>Back home</LinkButton>
-          <LinkButton href="/shop" variant="outline">Create a colour</LinkButton>
+          <LinkButton href="/our-story" variant="outline">Read our story</LinkButton>
         </div>
       </div>
     </section>

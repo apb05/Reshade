@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Dialog } from "@/components/ui/Dialog";
 import { Button } from "@/components/ui/Button";
+import { FEATURES } from "@/data/site";
 import { drawBottle, fontFamily, loadBottleImages } from "@/lib/bottle-canvas";
 
 const W = 1080;
@@ -62,9 +63,9 @@ export function ShareDialog({ open, onClose, hex, name, message, story }: { open
     const blob = await toBlob();
     if (!blob) return;
     try {
-      await navigator.share({ files: [new File([blob], fileName, { type: "image/png" })], title: name || "My ReShade colour", text: "Your Colour. Your Creation. — ReShade" });
+      await navigator.share({ files: [new File([blob], fileName, { type: "image/png" })], title: name || "My ReShade colour", text: "Your Colour. Your Creation. - ReShade" });
     } catch (e) {
-      if ((e as Error).name !== "AbortError") setNote("Sharing isn’t supported here — try downloading instead.");
+      if ((e as Error).name !== "AbortError") setNote("Sharing isn’t supported here. Try downloading instead.");
     }
   };
 
@@ -84,7 +85,7 @@ export function ShareDialog({ open, onClose, hex, name, message, story }: { open
                 { key: "message", label: "Personal message", value: message, disabled: !message },
                 { key: "story", label: "Colour story", value: story, disabled: !story },
               ] as const
-            ).map((o) => (
+            ).filter((o) => FEATURES.customLabels || o.key !== "message").map((o) => (
               <label key={o.key} className={`flex items-start gap-3 rounded-2xl bg-white p-3.5 text-sm ring-1 ring-ink/5 ${o.disabled ? "opacity-50" : "cursor-pointer"}`}>
                 <input type="checkbox" className="mt-0.5 size-5 accent-[#00265c]" disabled={o.disabled} checked={opts[o.key] && !o.disabled} onChange={(e) => setOpts((p) => ({ ...p, [o.key]: e.target.checked }))} />
                 <span className="min-w-0">
@@ -94,7 +95,7 @@ export function ShareDialog({ open, onClose, hex, name, message, story }: { open
               </label>
             ))}
           </fieldset>
-          <p className="mt-3 text-xs text-ink-soft">Your message and story are private by default. The image is generated on your device and isn’t uploaded anywhere.</p>
+          <p className="mt-3 text-xs text-ink-soft">{FEATURES.customLabels ? "Your message and story are" : "Your story is"} private by default. The image is generated on your device and isn’t uploaded anywhere.</p>
           <div className="mt-auto flex flex-col gap-2 pt-6">
             {canShareFiles && <Button variant="navy" onClick={share} disabled={!ready}>Share…</Button>}
             <Button variant="primary" onClick={download} disabled={!ready} arrow>Download image</Button>
@@ -142,7 +143,7 @@ function render(ctx: CanvasRenderingContext2D, imgs: Awaited<ReturnType<typeof l
   ctx.shadowColor = "rgba(0,0,0,0.35)";
   ctx.shadowBlur = 50;
   ctx.shadowOffsetY = 30;
-  drawBottle(ctx, imgs, hex, 110, 300, bw, { name, message, size: null });
+  drawBottle(ctx, imgs, hex, 110, 300, bw, FEATURES.customLabels ? { name, message, size: null } : null);
   ctx.restore();
 
   // Top brand bar
@@ -214,7 +215,7 @@ function render(ctx: CanvasRenderingContext2D, imgs: Awaited<ReturnType<typeof l
   ctx.fillStyle = "rgba(23,23,26,0.5)";
   ctx.font = `400 20px ${sans}`;
   ctx.textAlign = "right";
-  ctx.fillText("Digital colour preview — physical paint may vary", W - 80, H - 200);
+  ctx.fillText("Digital colour preview. Physical paint may vary", W - 80, H - 200);
   ctx.textAlign = "left";
 }
 

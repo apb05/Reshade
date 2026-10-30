@@ -32,7 +32,7 @@ export function ShopHero() {
             </motion.span>
           </h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="mt-6 max-w-xl text-lede text-ink-soft">
-            Create a shade that reflects you. Choose your colour, give it a name, and make it your own — all while giving discarded cosmetics a second life.
+            Create a shade that reflects you. Choose your colour, give it a name, and make it your own, all while giving discarded cosmetics a second life.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="mt-9 flex flex-wrap gap-3">
             <LinkButton href="#studio" variant="primary" size="lg" arrow>Create My Paint</LinkButton>

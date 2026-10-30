@@ -18,7 +18,7 @@ const show = (v: Submission["fields"][string]) => (Array.isArray(v) ? v.join(", 
 
 /**
  * Delivers a validated submission to every configured channel.
- * Succeeds only if at least one channel accepted it — the UI never
+ * Succeeds only if at least one channel accepted it, the UI never
  * shows a success message for an inquiry that wasn't delivered.
  */
 export async function deliver(sub: Submission) {

@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { RevealWords, Reveal } from "@/components/ui/Motion";
 import { EnactusLogo } from "@/components/ui/Logo";
 import { PARTNER_HREF, SITE } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Get in touch with ReShade — general questions, artist collaborations, volunteering and business partnerships.",
-};
+  description:
+    "Get in touch with ReShade: general questions, artist collaborations, volunteering and business partnerships.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
@@ -21,7 +24,7 @@ export default function ContactPage() {
             <RevealWords text="Let’s talk colour." />
           </h1>
           <Reveal delay={0.2}>
-            <p className="mt-6 max-w-md text-lede text-ink-soft">Questions, ideas, artist collaborations or volunteering — send us a message and the ReShade team will get back to you.</p>
+            <p className="mt-6 max-w-md text-lede text-ink-soft">Questions, ideas, artist collaborations or volunteering? Send us a message and the ReShade team will get back to you.</p>
           </Reveal>
 
           <Reveal delay={0.3}>

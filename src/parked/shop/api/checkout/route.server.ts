@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import { findVariant, getShopConfig, isPurchasable } from "@/data/catalogue";
 import { checkAvailability } from "@/data/colour-availability";
-import { SITE } from "@/data/site";
+import { FEATURES, SITE } from "@/data/site";
 
 const lineSchema = z.object({
   productId: z.string().max(60),
@@ -18,12 +18,12 @@ const bodySchema = z.object({ lines: z.array(lineSchema).min(1).max(20) });
 
 /**
  * Creates a Stripe Checkout Session. Prices are ALWAYS looked up on the
- * server from src/data/catalogue.ts — the client only says what it wants.
+ * server from src/data/catalogue.ts, the client only says what it wants.
  * Card details are entered on Stripe's hosted page and never touch ReShade.
  */
 export async function POST(req: Request) {
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) return NextResponse.json({ error: "Checkout isn’t live yet — payments haven’t been configured." }, { status: 503 });
+  if (!key) return NextResponse.json({ error: "Checkout isn’t live yet: payments haven’t been configured." }, { status: 503 });
 
   const parsed = bodySchema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Your cart contains invalid items. Please review it and try again." }, { status: 400 });
@@ -42,8 +42,8 @@ export async function POST(req: Request) {
 
     if (product) {
       if (!isPurchasable(product)) return NextResponse.json({ error: `${product.name} isn’t available to buy right now.` }, { status: 409 });
-      if (line.personalised && !product.personalisation.label) return NextResponse.json({ error: `${product.name} can’t be personalised yet.` }, { status: 409 });
-      if (line.message && !product.personalisation.message) return NextResponse.json({ error: `Personal messages aren’t available for ${product.name}.` }, { status: 409 });
+      if (line.personalised && (!FEATURES.customLabels || !product.personalisation.label)) return NextResponse.json({ error: `${product.name} can’t be personalised yet.` }, { status: 409 });
+      if (line.message && (!FEATURES.customLabels || !product.personalisation.message)) return NextResponse.json({ error: `Personal messages aren’t available for ${product.name}.` }, { status: 409 });
     } else {
       const availability = checkAvailability(line.hex);
       if (availability.status !== "available" || availability.match?.kind !== "formulation") {
@@ -61,7 +61,7 @@ export async function POST(req: Request) {
               currency: config.currency,
               unit_amount: unitAmount,
               product_data: {
-                name: `ReShade ${paintName} — ${variant.size}`,
+                name: `ReShade ${paintName} (${variant.size})`,
                 description: `${line.personalised ? "Personalised label. " : ""}Colour ${line.hex.toUpperCase()}${line.message ? ` · Message: ${line.message}` : ""}`.slice(0, 500),
               },
             },

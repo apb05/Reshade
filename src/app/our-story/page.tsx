@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkButton } from "@/components/ui/Button";
@@ -10,19 +11,21 @@ import { statById } from "@/data/impact";
 import { SITE } from "@/data/site";
 import { asset } from "@/lib/asset";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Story",
-  description: "How a student-led Enactus Humber Polytechnic initiative began turning expired makeup into paint — the problem, the early experiments, and where ReShade is going next.",
-};
+  description:
+    "How a student-led Enactus Humber Polytechnic initiative began turning expired makeup into paint: the problem, the early experiments, and where ReShade is going next.",
+  path: "/our-story",
+});
 
 const TIMELINE = [
   { phase: "Early experiments", title: "Makeup samples become paint prototypes", body: "The first trials took expired makeup samples and transformed them into early paint prototypes.", tone: "past" },
-  { phase: "Testing", title: "Which makeup works?", body: "Different makeup types — powders and liquids — were tested for their suitability as paint.", tone: "past" },
+  { phase: "Testing", title: "Which makeup works?", body: "Different makeup types (powders and liquids) were tested for their suitability as paint.", tone: "past" },
   { phase: "Listening", title: "Conversations with artists", body: "Informal outreach and conversations with artists gauged interest in a paint made from recovered cosmetics.", tone: "past" },
   { phase: "Learning", title: "Lessons that shaped the product", body: "What we learned from early trials shaped the current product direction.", tone: "past" },
   { phase: "Today", title: "Developing the product with artists", body: "ReShade is focused on product development and on how artists use it. Paint quality, consistency, colour range and artist demand are still being validated.", tone: "now" },
   { phase: "Next", title: "One artist project a month", body: "Collaborate with an artist each month to test ReShade and gather feedback on quality, colours, usability and applications.", tone: "goal" },
-  { phase: "Next", title: "A consistent, market-ready product", body: "Test paint formats, colours, consistency, containers, labels and branding — then use artist feedback to decide what product, packaging and business model to develop next.", tone: "goal" },
+  { phase: "Next", title: "A consistent, market-ready product", body: "Test paint formats, colours, consistency, containers, labels and branding, then use artist feedback to decide what product, packaging and business model to develop next.", tone: "goal" },
   { phase: "Ambition", title: "Grow through partnership", body: "Seek investment and strategic partnerships to expand manufacturing, validate repeat demand and advance packaging recovery.", tone: "goal" },
 ] as const;
 
@@ -94,7 +97,7 @@ export default function StoryPage() {
             </h2>
             <Reveal>
               <p className="mt-6 text-lede text-ink-soft">
-                ReShade takes expired makeup and repurposes its pigments into paint. That turns a waste stream into something useful — and into something beautiful.
+                ReShade takes expired makeup and repurposes its pigments into paint. That turns a waste stream into something useful, and into something beautiful.
               </p>
               <p className="mt-5 text-ink-soft">
                 We started with artists because they use paints and pigments every day. Working directly with them lets us improve the product based on real-world use, then refine it before expanding to a larger consumer market.
@@ -114,7 +117,7 @@ export default function StoryPage() {
             </h2>
             <Reveal>
               <p className="mt-6 text-lede text-white/80">
-                ReShade is a student-led initiative of Enactus Humber Polytechnic. It combines entrepreneurship with environmental action — tackling cosmetic waste by building a real product.
+                ReShade is a student-led initiative of Enactus Humber Polytechnic. It combines entrepreneurship with environmental action, tackling cosmetic waste by building a real product.
               </p>
               <a href={SITE.enactus.url} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-4 rounded-2xl border border-white/15 px-5 py-4 transition hover:border-white/40">
                 <EnactusLogo className="h-10 w-auto" />
@@ -142,7 +145,7 @@ export default function StoryPage() {
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <p className="eyebrow text-red">The journey</p>
-              <h2 id="timeline-title" className="mt-4 font-display text-display font-extrabold text-navy"><RevealWords text="How we got here — and where we’re going." /></h2>
+              <h2 id="timeline-title" className="mt-4 font-display text-display font-extrabold text-navy"><RevealWords text="How we got here, and where we’re going." /></h2>
             </div>
             <ul className="flex flex-wrap gap-2 text-xs font-semibold">
               {Object.values(TONE).map((t) => (
@@ -183,9 +186,9 @@ export default function StoryPage() {
             </h2>
             <Reveal>
               <p className="mt-6 text-lede text-ink-soft">
-                ReShade exists because something discarded can become something new. The same idea runs through every colour you create with us: you choose a shade, name it, give it meaning — and recovered pigment becomes part of your story.
+                ReShade exists because something discarded can become something new. Whether you’re an artist, a volunteer or a business with unwanted cosmetics, there’s a place for you in that story.
               </p>
-              <LinkButton href="/shop#studio" variant="navy" arrow className="mt-8">Create your colour</LinkButton>
+              <LinkButton href="/contact" variant="navy" arrow className="mt-8">Get in touch</LinkButton>
             </Reveal>
           </div>
         </div>

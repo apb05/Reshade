@@ -14,7 +14,7 @@ export function PartnerForm() {
 
   if (state.kind === "success") {
     return (
-      <SuccessPanel title="Thank you — inquiry received." onReset={reset} resetLabel="Submit another inquiry">
+      <SuccessPanel title="Thank you, inquiry received." onReset={reset} resetLabel="Submit another inquiry">
         The ReShade team will review the product types, quantities and condition you’ve described and get back to you about eligibility and next steps. Nothing is collected until both sides have agreed on the details.
       </SuccessPanel>
     );

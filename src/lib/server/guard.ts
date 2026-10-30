@@ -27,7 +27,7 @@ export async function guard(req: Request, raw: unknown): Promise<GuardResult> {
   const ip = (req.headers.get("x-forwarded-for")?.split(",")[0] ?? req.headers.get("x-real-ip") ?? "local").trim();
   const now = Date.now();
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_PER_WINDOW) return { ok: false, status: 429, error: "Too many submissions — please try again in a few minutes." };
+  if (recent.length >= MAX_PER_WINDOW) return { ok: false, status: 429, error: "Too many submissions. Please try again in a few minutes." };
   recent.push(now);
   hits.set(ip, recent);
 
@@ -39,7 +39,7 @@ export async function guard(req: Request, raw: unknown): Promise<GuardResult> {
       body: new URLSearchParams({ secret, response: turnstileToken, remoteip: ip }),
     }).catch(() => null);
     const data = (await res?.json().catch(() => null)) as { success?: boolean } | null;
-    if (!data?.success) return { ok: false, status: 400, error: "Verification failed — please try again." };
+    if (!data?.success) return { ok: false, status: 400, error: "Verification failed. Please try again." };
   }
   return { ok: true };
 }

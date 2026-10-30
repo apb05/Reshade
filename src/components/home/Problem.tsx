@@ -19,7 +19,7 @@ export function Problem() {
     <section id="discover" aria-labelledby="problem-title" className="grain scroll-mt-16 bg-paper">
       <div ref={ref} className="grid lg:min-h-[100svh] lg:grid-cols-2">
         <div className="relative min-h-[60svh] overflow-hidden bg-cream lg:sticky lg:top-0 lg:h-[100svh]">
-          <Image src={asset("/images/stage-makeup.jpg")} alt="Pressed blush compacts, cracked and crumbled — makeup that would otherwise be thrown away" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+          <Image src={asset("/images/stage-makeup.jpg")} alt="Pressed blush compacts, cracked and crumbled, makeup that would otherwise be thrown away" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           <motion.div className="absolute inset-0" style={{ clipPath: reduce ? "inset(0 0 100% 0)" : clip }}>
             <Image src={asset("/images/stage-paste.jpg")} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           </motion.div>
@@ -38,7 +38,7 @@ export function Problem() {
             </h2>
             <Reveal delay={0.1}>
               <p className="mt-8 text-lede text-ink-soft">
-                Millions of cosmetic products and their packaging end up as waste. Unwanted, expired or unsellable makeup is often thrown away — even though much of it still contains pigments that could be useful.
+                Millions of cosmetic products and their packaging end up as waste. Unwanted, expired or unsellable makeup is often thrown away, even though much of it still contains pigments that could be useful.
               </p>
             </Reveal>
             <Reveal delay={0.15}>

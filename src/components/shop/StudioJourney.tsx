@@ -17,6 +17,7 @@ import { ColourRequestDialog } from "@/components/shop/ColourRequestDialog";
 import { ShareDialog } from "@/components/shop/ShareDialog";
 import { Button } from "@/components/ui/Button";
 import { nameIdeas } from "@/components/shop/nameIdeas";
+import { FEATURES } from "@/data/site";
 
 const STEPS = [
   { title: "Discover", headline: "What colour speaks to you?" },
@@ -54,7 +55,7 @@ export function StudioJourney() {
   const label = showLabel ? { name: s.name, message: s.message, size: null } : null;
 
   return (
-    <section id="studio" aria-labelledby="studio-heading" className="relative scroll-mt-20 overflow-hidden transition-[background-color] duration-700" style={{ backgroundColor: tint }}>
+    <section id="studio" aria-labelledby="studio-heading" className="relative scroll-mt-20 overflow-clip transition-[background-color] duration-700" style={{ backgroundColor: tint }}>
       <div aria-hidden className="pointer-events-none absolute -right-[20vmax] -top-[20vmax] size-[60vmax] rounded-full opacity-40 blur-3xl transition-[background-color] duration-700" style={{ backgroundColor: hex }} />
       <div className="container-x relative py-20 sm:py-28">
         <div className="mb-10 flex flex-col gap-8 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
@@ -62,7 +63,7 @@ export function StudioJourney() {
             <p className="eyebrow text-red">The colour studio</p>
             <h2 id="studio-heading" className="mt-3 font-display text-headline font-extrabold text-navy">Every colour starts with you.</h2>
             <p className="mt-4 text-lede text-ink-soft">
-              Find your perfect shade, give it a name, and watch your bottle come to life. Experiment with millions of colours — your next masterpiece starts here.
+              Find your perfect shade, give it a name, and watch your bottle come to life. Experiment with millions of colours. Your next masterpiece starts here.
             </p>
           </div>
           <div id="studio-steps" className="scroll-mt-24">
@@ -178,7 +179,7 @@ function Stage({ hex, label, name }: { hex: string; label: { name: string; messa
           </div>
           <span className="absolute right-5 top-5 rounded-full bg-white/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-ink-soft">Digital preview</span>
         </div>
-        <p className="mx-auto mt-4 max-w-[30rem] text-center text-xs text-ink-soft">Move your pointer over the bottle to inspect it. On-screen colour is a simulation — physical paint may vary.</p>
+        <p className="mx-auto mt-4 max-w-[30rem] text-center text-xs text-ink-soft">Move your pointer over the bottle to inspect it. On-screen colour is a simulation; physical paint may vary.</p>
       </div>
     </div>
   );
@@ -221,7 +222,7 @@ function StepName({ hex }: { hex: string }) {
           aria-describedby={`${id}-name-count`}
         />
         <div className="mt-2 flex items-center justify-between text-xs text-ink-soft">
-          <span>Your name appears on the label, right on the bottle.</span>
+          <span>{FEATURES.customLabels ? "Your name appears on the label, right on the bottle." : "Your name stays with your creation, in your collection and anything you share."}</span>
           <span id={`${id}-name-count`} aria-live="polite">{name.length}/{LIMITS.name}</span>
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -236,26 +237,31 @@ function StepName({ hex }: { hex: string }) {
           </button>
         </div>
       </div>
-      <div>
-        <label htmlFor={`${id}-msg`} className="block text-sm font-semibold">
-          A short personal message <span className="font-normal text-ink-soft">(optional)</span>
-        </label>
-        <input
-          id={`${id}-msg`}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          maxLength={LIMITS.message}
-          placeholder="For Mum, who taught me to paint"
-          className="field mt-3"
-          aria-describedby={`${id}-msg-help`}
-        />
-        <p id={`${id}-msg-help`} className="mt-2 text-xs text-ink-soft">
-          {message.length}/{LIMITS.message} · Printed in small type beneath your colour name.
-        </p>
-      </div>
-      <p className="rounded-2xl bg-white/60 p-4 text-xs leading-relaxed text-ink-soft ring-1 ring-ink/5">
-        This is a design preview. Any physical label will also carry the required product, ingredient and safety information, and personalised packaging is only produced where ReShade has confirmed it’s available.
-      </p>
+      {/* Personal message + label disclaimer: only offered with custom labels */}
+      {FEATURES.customLabels && (
+        <>
+          <div>
+            <label htmlFor={`${id}-msg`} className="block text-sm font-semibold">
+              A short personal message <span className="font-normal text-ink-soft">(optional)</span>
+            </label>
+            <input
+              id={`${id}-msg`}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              maxLength={LIMITS.message}
+              placeholder="For Mum, who taught me to paint"
+              className="field mt-3"
+              aria-describedby={`${id}-msg-help`}
+            />
+            <p id={`${id}-msg-help`} className="mt-2 text-xs text-ink-soft">
+              {message.length}/{LIMITS.message} · Printed in small type beneath your colour name.
+            </p>
+          </div>
+          <p className="rounded-2xl bg-white/60 p-4 text-xs leading-relaxed text-ink-soft ring-1 ring-ink/5">
+            This is a design preview. Any physical label will also carry the required product, ingredient and safety information, and personalised packaging is only produced where ReShade has confirmed it’s available.
+          </p>
+        </>
+      )}
     </div>
   );
 }
@@ -266,7 +272,7 @@ function StepStory() {
   return (
     <div className="space-y-8">
       <p className="max-w-xl text-ink-soft">
-        Every shade has a story. What’s yours? This step is completely optional — your story stays on this device and is only shared if you choose to include it later.
+        Every shade has a story. What’s yours? This step is completely optional. Your story stays on this device and is only shared if you choose to include it later.
       </p>
       <fieldset>
         <legend className="mb-3 text-sm font-semibold">This colour is inspired by…</legend>
@@ -322,12 +328,14 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
   const product = availability.match?.kind === "product" ? availability.match.product : null;
   const variants = product ? product.variants : availability.match?.kind === "formulation" ? config.customShadeVariants : [];
   const variant = variants.find((v) => v.id === s.variantId) ?? variants[0] ?? null;
-  const messageAllowed = product ? product.personalisation.message : true;
+  const messageAllowed = FEATURES.customLabels && (product ? product.personalisation.message : true);
+  // The personal message only exists to be printed on a custom label.
+  const message = messageAllowed ? s.message : "";
   const story = STORY_CATEGORIES.find((c) => c.id === s.storyCategory);
   const displayName = s.name.trim() || "Your colour";
 
   const save = () => {
-    const id = saveToCollection({ hex, name: s.name, message: s.message, storyCategory: s.storyCategory, story: s.story }, s.editingId);
+    const id = saveToCollection({ hex, name: s.name, message: FEATURES.customLabels ? s.message : "", storyCategory: s.storyCategory, story: s.story }, s.editingId);
     useStudio.setState({ editingId: id });
     setSaved(true);
     setTimeout(() => setSaved(false), 2600);
@@ -341,8 +349,8 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
       qty: s.qty,
       hex: product?.hex ?? hex,
       name: s.name.trim() || product?.name || "Custom shade",
-      message: messageAllowed ? s.message.trim() : "",
-      personalised: Boolean(s.name.trim()),
+      message: message.trim(),
+      personalised: FEATURES.customLabels && Boolean(s.name.trim()),
     });
   };
 
@@ -358,7 +366,7 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
         </motion.svg>
         <div className="relative grid items-center gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <motion.div initial={{ opacity: 0, y: 60, scale: 0.9, rotate: -4 }} animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.3, ease: EASE }} className="mx-auto w-[min(17rem,62vw)]">
-            <PaintBottle hex={hex} label={{ name: s.name, message: messageAllowed ? s.message : "", size: variant?.size ?? null }} tilt priority />
+            <PaintBottle hex={hex} label={{ name: s.name, message, size: variant?.size ?? null }} tilt priority />
           </motion.div>
           <div style={{ color: ink, textShadow: ink === "#FFFFFF" ? "0 1px 18px rgba(0,0,0,0.35)" : "none" }}>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.8 }} transition={{ delay: 0.7 }} className="eyebrow">Your creation</motion.p>
@@ -420,7 +428,7 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
                   </motion.p>
                 </div>
               </div>
-              {!messageAllowed && s.message && <p className="text-sm text-ink-soft">Personal messages aren’t offered for this paint, so your message won’t be printed.</p>}
+              {FEATURES.customLabels && !messageAllowed && s.message && <p className="text-sm text-ink-soft">Personal messages aren’t offered for this paint, so your message won’t be printed.</p>}
               <Button variant="primary" size="lg" arrow className="w-full" onClick={add} disabled={variant.priceCents == null}>
                 Add my colour to cart
               </Button>
@@ -428,7 +436,7 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
           ) : availability.status === "request" ? (
             <div className="mt-6 space-y-5">
               <p className="text-ink-soft">
-                We can’t promise every digital colour can be made from recovered cosmetic pigments, so custom shades are reviewed by the ReShade team first. Send us your creation and we’ll let you know if — and how — we can make it. No payment is taken until feasibility, pricing and fulfilment are confirmed.
+                We can’t promise every digital colour can be made from recovered cosmetic pigments, so custom shades are reviewed by the ReShade team first. Send us your creation and we’ll let you know if, and how, we can make it. No payment is taken until feasibility, pricing and fulfilment are confirmed.
               </p>
               <Button variant="primary" size="lg" arrow className="w-full" onClick={() => setRequestOpen(true)}>
                 Request this custom shade
@@ -436,7 +444,7 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
             </div>
           ) : (
             <div className="mt-6 space-y-4">
-              <p className="text-ink-soft">Try adjusting the colour — nearby shades may be possible.</p>
+              <p className="text-ink-soft">Try adjusting the colour, as nearby shades may be possible.</p>
               <Button variant="navy" onClick={() => onEdit(0)}>Adjust my colour</Button>
             </div>
           )}
@@ -444,7 +452,7 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
 
         <div className="flex flex-col gap-3 rounded-[2rem] bg-navy p-6 text-white sm:p-8">
           <p className="font-display text-2xl font-bold">Keep it. Share it.</p>
-          <p className="text-sm text-white/70">Save your creation to come back to later — no account needed — or share it with the world.</p>
+          <p className="text-sm text-white/70">Save your creation to come back to later (no account needed) or share it with the world.</p>
           <div className="mt-auto flex flex-col gap-2 pt-4">
             <Button variant="primary" onClick={save}>
               {saved ? "✓ Saved to My Colour Collection" : s.editingId ? "Update in my collection" : "Save to My Colour Collection"}
@@ -456,10 +464,10 @@ function StepReveal({ hex, onEdit }: { hex: string; onEdit: (step: number) => vo
           </div>
         </div>
       </div>
-      <p className="mt-6 text-center text-sm text-green">Made personal. Inspired by sustainability — every ReShade paint begins with discarded cosmetic pigments.</p>
+      <p className="mt-6 text-center text-sm text-green">Made personal. Inspired by sustainability: every ReShade paint begins with discarded cosmetic pigments.</p>
 
-      <ColourRequestDialog open={requestOpen} onClose={() => setRequestOpen(false)} hex={hex} colourName={s.name} message={s.message} story={s.story} />
-      <ShareDialog open={shareOpen} onClose={() => setShareOpen(false)} hex={hex} name={s.name} message={s.message} story={s.story} />
+      <ColourRequestDialog open={requestOpen} onClose={() => setRequestOpen(false)} hex={hex} colourName={s.name} message={message} story={s.story} />
+      <ShareDialog open={shareOpen} onClose={() => setShareOpen(false)} hex={hex} name={s.name} message={message} story={s.story} />
     </div>
   );
 }

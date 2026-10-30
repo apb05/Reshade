@@ -6,10 +6,10 @@
  * consistency and colour range are still being validated. So a digital colour
  * is never assumed to be producible.
  *
- *  • "available"   — matches a formulation ReShade has confirmed it can make,
+ *  • "available": matches a formulation ReShade has confirmed it can make,
  *                    with confirmed sizes and prices → can be bought.
- *  • "request"     — needs a feasibility review → "Request This Custom Shade".
- *  • "unavailable" — matches a rule ReShade has set for shades it cannot make.
+ *  • "request": needs a feasibility review → "Request This Custom Shade".
+ *  • "unavailable": matches a rule ReShade has set for shades it cannot make.
  *
  * By default there are NO confirmed formulations and NO exclusion rules, so
  * every custom shade goes to the request path. Add entries as the team
@@ -17,6 +17,7 @@
  */
 import { deltaE, hexToHsv, type HSV } from "@/lib/colour";
 import { getShopConfig, type Product } from "@/data/catalogue";
+import { FEATURES } from "@/data/site";
 
 export type Availability = "available" | "request" | "unavailable";
 
@@ -70,7 +71,7 @@ export function checkAvailability(hex: string): AvailabilityResult {
     (p) => p.status === "available" && p.availability !== "sold_out" && p.personalisation.label && deltaE(p.hex, hex) <= 3,
   );
   if (product) {
-    return { status: "available", reason: `This is our ${product.name} — available to personalise.`, match: { kind: "product", product } };
+    return { status: "available", reason: `This is our ${product.name}, ${FEATURES.customLabels ? "available to personalise" : "available to order"}.`, match: { kind: "product", product } };
   }
 
   return {

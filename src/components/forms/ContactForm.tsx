@@ -18,7 +18,7 @@ export function ContactForm() {
   if (state.kind === "success") {
     return (
       <SuccessPanel title="Message sent." onReset={reset}>
-        Thanks for reaching out — the ReShade team will reply to the email address you provided.
+        Thanks for reaching out! The ReShade team will reply to the email address you provided.
       </SuccessPanel>
     );
   }

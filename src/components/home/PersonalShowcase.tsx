@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { PaintBottle } from "@/components/shop/PaintBottle";
+import { FEATURES } from "@/data/site";
 import { LinkButton } from "@/components/ui/Button";
 import { RevealWords, Reveal } from "@/components/ui/Motion";
 
@@ -24,11 +25,11 @@ export function PersonalShowcase() {
         </h2>
         <Reveal delay={0.15}>
           <p className="mx-auto mt-6 max-w-2xl text-lede text-ink-soft">
-            Choose a shade, give it a name and a meaning, and see it on your own ReShade bottle. Paint you help create — inspired by giving discarded cosmetics a second life.
+            Choose a shade, give it a name and a meaning, and watch it come to life in a ReShade bottle. Paint you help create, inspired by giving discarded cosmetics a second life.
           </p>
         </Reveal>
       </div>
-      <ul className="container-x mt-14 grid max-w-6xl grid-cols-3 items-end gap-3 sm:grid-cols-5 sm:gap-6" aria-label="Example personalised bottles">
+      <ul className="container-x mt-14 grid max-w-6xl grid-cols-3 items-end gap-3 sm:grid-cols-5 sm:gap-6" aria-label="Example colour creations">
         {EXAMPLES.map((e, i) => (
           <motion.li
             key={e.name}
@@ -39,11 +40,18 @@ export function PersonalShowcase() {
             transition={{ duration: 1, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: (i % 2 ? 24 : 0) - 12, rotate: i % 2 ? 2 : -2 }}
           >
-            <PaintBottle hex={e.hex} label={{ name: e.name }} alt={`Example bottle personalised as “${e.name}”`} />
+            {FEATURES.customLabels ? (
+              <PaintBottle hex={e.hex} label={{ name: e.name }} alt={`Example bottle personalised as “${e.name}”`} />
+            ) : (
+              <figure>
+                <PaintBottle hex={e.hex} alt={`Example ReShade bottle in the colour “${e.name}”`} />
+                <figcaption className="mt-4 font-serif text-lg italic leading-tight text-ink sm:text-xl">{e.name}</figcaption>
+              </figure>
+            )}
           </motion.li>
         ))}
       </ul>
-      <p className="mt-10 text-center text-xs text-ink-soft">Illustrative examples. Digital previews — physical paint may vary.</p>
+      <p className="mt-10 text-center text-xs text-ink-soft">Illustrative examples. Digital previews. Physical paint may vary.</p>
       <div className="mt-8 flex justify-center">
         <LinkButton href="/shop#studio" variant="navy" size="lg" arrow>Design Your Own</LinkButton>
       </div>

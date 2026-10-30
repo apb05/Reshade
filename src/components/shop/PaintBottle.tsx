@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useTilt } from "@/components/ui/Motion";
 import { PersonalLabel, type LabelContent } from "@/components/shop/PersonalLabel";
 import { asset } from "@/lib/asset";
+import { FEATURES } from "@/data/site";
 
 /**
  * A real photograph of a ReShade bottle, split into layers so the paint can be
@@ -23,7 +24,7 @@ const pct = (n: number, of: number) => `${(n / of) * 100}%`;
 
 export function PaintBottle({
   hex,
-  label,
+  label: requestedLabel,
   className = "",
   tilt = false,
   shadow = true,
@@ -31,7 +32,7 @@ export function PaintBottle({
   alt,
 }: {
   hex: string;
-  /** When provided, a personalised label is printed over the original one. */
+  /** When provided (and FEATURES.customLabels is on), a personalised label is printed over the original one. */
   label?: LabelContent | null;
   className?: string;
   tilt?: boolean;
@@ -39,6 +40,7 @@ export function PaintBottle({
   priority?: boolean;
   alt?: string;
 }) {
+  const label = FEATURES.customLabels ? requestedLabel : null;
   const reduce = useReducedMotion();
   const t = useTilt(9);
   const [lx0, ly0, lx1, ly1] = BOTTLE.label;

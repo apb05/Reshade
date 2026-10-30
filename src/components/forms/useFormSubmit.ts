@@ -52,15 +52,15 @@ export function useFormSubmit<S extends z.ZodType>(endpoint: string, schema: S) 
       if (body.fields) setErrors(body.fields);
       setState({ kind: "error", message: body.error ?? "Something went wrong. Please try again.", notConfigured: body.code === "not_configured" });
     } catch {
-      setState({ kind: "error", message: "Network error — please check your connection and try again." });
+      setState({ kind: "error", message: "Network error. Please check your connection and try again." });
     }
     return false;
   }
 
   /**
    * Static hosting (GitHub Pages) has no API routes. Submissions go straight to a
-   * hosted form service (e.g. Formspree) set in NEXT_PUBLIC_FORM_ENDPOINT, or —
-   * if none is configured — the visitor is told plainly that nothing was sent.
+   * hosted form service (e.g. Formspree) set in NEXT_PUBLIC_FORM_ENDPOINT, or,
+   * if none is configured, the visitor is told plainly that nothing was sent.
    */
   async function submitStatic(apiPath: string, data: unknown, honeypot: string) {
     if (honeypot) {
@@ -83,7 +83,7 @@ export function useFormSubmit<S extends z.ZodType>(endpoint: string, schema: S) 
       }
       setState({ kind: "error", message: "We couldn’t deliver your message right now. Please try again shortly." });
     } catch {
-      setState({ kind: "error", message: "Network error — please check your connection and try again." });
+      setState({ kind: "error", message: "Network error. Please check your connection and try again." });
     }
     return false;
   }

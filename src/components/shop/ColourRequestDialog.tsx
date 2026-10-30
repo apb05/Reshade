@@ -8,6 +8,7 @@ import { Turnstile } from "@/components/forms/Turnstile";
 import { SuccessPanel } from "@/components/forms/SuccessPanel";
 import { Dialog } from "@/components/ui/Dialog";
 import { Button } from "@/components/ui/Button";
+import { FEATURES } from "@/data/site";
 import { PaintBottle } from "@/components/shop/PaintBottle";
 import { QtyStepper } from "@/components/layout/CartDrawer";
 
@@ -40,7 +41,7 @@ export function ColourRequestDialog({ open, onClose, hex, colourName, message, s
                 colourName,
                 hex,
                 quantity: qty,
-                notes: [message ? `Label message: “${message}”` : "", String(fd.get("notes") ?? "")].filter(Boolean).join("\n"),
+                notes: [FEATURES.customLabels && message ? `Label message: “${message}”` : "", String(fd.get("notes") ?? "")].filter(Boolean).join("\n"),
                 includeStory,
                 story: includeStory ? story : "",
                 consent: fd.get("consent") === "on",

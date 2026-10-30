@@ -61,7 +61,7 @@ export function ImpactHome() {
           <Reveal delay={0.14} className="flex flex-col justify-end rounded-[2.5rem] border-2 border-navy/10 p-8 lg:col-span-7">
             <CountUp value={suppliers.value} className="block font-display text-7xl font-extrabold tracking-tighter text-navy sm:text-8xl" />
             <p className="mt-3 max-w-md font-display text-xl font-bold">{suppliers.label}</p>
-            <p className="mt-1 max-w-lg text-ink-soft">Engagement through supplier outreach — not formal partnerships.</p>
+            <p className="mt-1 max-w-lg text-ink-soft">Engagement through supplier outreach, not formal partnerships.</p>
           </Reveal>
         </div>
         <p className="mt-8 text-sm text-ink-soft">Figures as reported in ReShade’s Info Session and Enactus Humber pitch presentations.</p>

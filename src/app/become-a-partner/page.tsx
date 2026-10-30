@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { BeforeAfter } from "@/components/partner/BeforeAfter";
 import { ICONS } from "@/components/partner/Icons";
@@ -10,16 +11,17 @@ import { PaintStroke } from "@/components/ui/PaintStroke";
 import { statById } from "@/data/impact";
 import { asset } from "@/lib/asset";
 
-export const metadata: Metadata = {
-  title: "Become a Partner — Give Your Cosmetic Waste a Second Life",
+export const metadata: Metadata = pageMetadata({
+  title: "Become a Partner: Repurpose Cosmetic Waste",
   description:
-    "Cosmetic brands, retailers, manufacturers, distributors and salons: contribute eligible unwanted, expired or unsellable makeup to ReShade at no fee for accepted products, and help turn recovered pigments into paint.",
-};
+    "Cosmetic brands, retailers and salons: contribute unwanted, expired or unsellable makeup to ReShade, at no fee for accepted products, and help turn it into paint.",
+  path: "/become-a-partner",
+});
 
 const STEPS = [
   { title: "Get in touch", body: "Tell us about your business, the cosmetics you’d like to provide, and roughly how much is available.", img: asset("/images/stage-makeup.jpg"), alt: "Unwanted pressed blush compacts" },
   { title: "Review the products", body: "The ReShade team assesses the product types, quantities, condition and suitability before anything moves.", img: asset("/images/lab-testing.jpg"), alt: "A ReShade team member testing a sample in a lab" },
-  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred — including who handles any shipping or collection.", img: asset("/images/lab-equipment.jpg"), alt: "Prototype processing equipment from ReShade’s product development" },
+  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred, including who handles any shipping or collection.", img: asset("/images/lab-equipment.jpg"), alt: "Prototype processing equipment from ReShade’s product development" },
   { title: "Give makeup a second life", body: "Suitable materials are directed into ReShade’s pigment recovery and paint development.", img: asset("/images/jars-open.jpg"), alt: "Open jars of ReShade paint in many colours" },
 ];
 
@@ -44,7 +46,7 @@ export default function PartnerPage() {
   const diverted = statById("diverted");
   return (
     <>
-      {/* 1 — Hero */}
+      {/* 1. Hero */}
       <section className="relative overflow-hidden bg-navy pb-20 pt-32 text-white sm:pt-40">
         <div aria-hidden className="absolute -left-40 top-20 size-[40rem] rounded-full bg-navy-soft opacity-60 blur-3xl" />
         <div className="container-x relative grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
@@ -75,7 +77,7 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 2 — Financial advantage */}
+      {/* 2. Financial advantage */}
       <section aria-labelledby="money-title" className="grain bg-cream py-24 sm:py-32">
         <div className="container-x">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
@@ -125,13 +127,13 @@ export default function PartnerPage() {
           </div>
           <Reveal>
             <p className="mt-6 max-w-4xl rounded-2xl bg-white/70 px-5 py-4 text-sm text-ink-soft">
-              <strong className="text-ink">Good to know:</strong> not every cosmetic product can be accepted. Eligibility, quantities and collection or shipping arrangements — including who covers any transport costs — are confirmed with you before any materials are accepted. ReShade doesn’t guarantee specific cost savings.
+              <strong className="text-ink">Good to know:</strong> not every cosmetic product can be accepted. Eligibility, quantities and collection or shipping arrangements, including who covers any transport costs, are confirmed with you before any materials are accepted. ReShade doesn’t guarantee specific cost savings.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* 3 — Possibility */}
+      {/* 3. Possibility */}
       <section aria-labelledby="possibility-title" className="overflow-hidden bg-paper py-24 sm:py-32">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
@@ -141,7 +143,7 @@ export default function PartnerPage() {
             </h2>
             <Reveal delay={0.1}>
               <p className="mt-6 text-lede text-ink-soft">
-                Expired or unsellable cosmetics can still hold pigments worth recovering. When your products are suitable, ReShade may recover those pigments and develop them into paint — and your business becomes part of a genuinely new approach to cosmetic waste.
+                Expired or unsellable cosmetics can still hold pigments worth recovering. When your products are suitable, ReShade may recover those pigments and develop them into paint, and your business becomes part of a genuinely new approach to cosmetic waste.
               </p>
             </Reveal>
           </div>
@@ -166,7 +168,7 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 4 — How it works */}
+      {/* 4. How it works */}
       <section id="how-it-works" aria-labelledby="how-title" className="scroll-mt-20 bg-navy py-24 text-white sm:py-32">
         <div className="container-x">
           <p className="eyebrow text-yellow">How partnership works</p>
@@ -195,7 +197,7 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 5 — Who */}
+      {/* 5. Who */}
       <section aria-labelledby="who-title" className="bg-paper py-24 sm:py-32">
         <div className="container-x">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
@@ -220,7 +222,7 @@ export default function PartnerPage() {
           <Reveal>
             <div className="mt-10 flex flex-col gap-6 rounded-[2rem] bg-cream p-8 sm:flex-row sm:items-center sm:justify-between">
               <p className="max-w-xl text-ink-soft">
-                So far ReShade has engaged <strong className="text-ink"><CountUp value={suppliers.value} /> suppliers</strong> in green business practices and diverted <strong className="text-ink"><CountUp value={diverted.value} suffix="+" /> cosmetic products</strong> — as reported in our presentations.
+                So far ReShade has engaged <strong className="text-ink"><CountUp value={suppliers.value} /> suppliers</strong> in green business practices and diverted <strong className="text-ink"><CountUp value={diverted.value} suffix="+" /> cosmetic products</strong>, as reported in our presentations.
               </p>
               <LinkButton href="#inquiry" variant="navy" arrow className="shrink-0">Start the conversation</LinkButton>
             </div>
@@ -228,7 +230,7 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 6 — Why */}
+      {/* 6. Why */}
       <section aria-labelledby="why-title" className="grain bg-cream py-24 sm:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
@@ -258,7 +260,7 @@ export default function PartnerPage() {
         <p className="container-x mt-10 text-xs text-ink-soft">Partnering with ReShade does not guarantee specific ESG outcomes, regulatory compliance, certifications or cost savings.</p>
       </section>
 
-      {/* 7 — Form */}
+      {/* 7. Form */}
       <section id="inquiry" aria-labelledby="inquiry-title" className="scroll-mt-20 bg-paper py-24 sm:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
@@ -283,7 +285,7 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 8 — Closing */}
+      {/* 8. Closing */}
       <PartnerCTA
         title="Let’s create something better together."
         body="Your unwanted cosmetics could help create something new. Partner with ReShade to explore a more creative future for cosmetic waste."

@@ -63,7 +63,7 @@ export type ColourRequestInput = z.input<typeof colourRequestSchema>;
 
 /** Anti-spam fields every public form sends alongside its data. */
 export const guardSchema = z.object({
-  /** Honeypot — must be empty */
+  /** Honeypot: must be empty */
   fax: z.string().max(500).optional().default(""),
   /** ms timestamp when the form was first rendered */
   startedAt: z.number().int(),

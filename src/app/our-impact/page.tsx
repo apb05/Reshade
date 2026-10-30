@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
-import { LinkButton } from "@/components/ui/Button";
 import { CountUp, Reveal, RevealWords } from "@/components/ui/Motion";
 import { PaintStroke } from "@/components/ui/PaintStroke";
 import { PartnerCTA } from "@/components/home/PartnerCTA";
 import { STATS, statById } from "@/data/impact";
 import { asset } from "@/lib/asset";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Impact",
-  description: "ReShade’s reported impact so far — cosmetic products diverted, paint produced, people reached and suppliers engaged — and the goals ahead.",
-};
+  description:
+    "ReShade’s reported impact so far (cosmetic products diverted, paint produced, people reached and suppliers engaged) and the goals ahead.",
+  path: "/our-impact",
+});
 
 /** Colours observed in ReShade prototype paint batches (sampled from product photography). */
 const RECOVERED_SHADES = [
@@ -29,7 +31,7 @@ const AREAS = [
     eyebrow: "Cosmetic waste diversion",
     stat: "diverted",
     title: "Makeup redirected, not thrown out.",
-    body: "Unwanted, expired and unsellable cosmetic products have been diverted toward pigment recovery — products that would otherwise have been discarded.",
+    body: "Unwanted, expired and unsellable cosmetic products have been diverted toward pigment recovery, products that would otherwise have been discarded.",
     img: asset("/images/stage-makeup.jpg"),
     alt: "Unwanted pressed blush compacts",
   },
@@ -37,7 +39,7 @@ const AREAS = [
     eyebrow: "Paint production",
     stat: "produced",
     title: "Hundreds of prototype paints.",
-    body: "Recovered pigments have been turned into bottles and jars of paint during product development. These are prototypes, made while we validate quality and consistency — not industrial-scale manufacturing.",
+    body: "Recovered pigments have been turned into bottles and jars of paint during product development. These are prototypes, made while we validate quality and consistency, not industrial-scale manufacturing.",
     img: asset("/images/jars-open.jpg"),
     alt: "Open jars of ReShade paint",
   },
@@ -70,7 +72,7 @@ export default function ImpactPage() {
             <span className="block text-yellow"><RevealWords text="Big impact." delay={0.2} /></span>
           </h1>
           <Reveal delay={0.3}>
-            <p className="mt-8 max-w-2xl text-lede text-white/80">What ReShade has achieved so far, what we’re still testing, and where we’re aiming next — reported plainly, with sources.</p>
+            <p className="mt-8 max-w-2xl text-lede text-white/80">What ReShade has achieved so far, what we’re still testing, and where we’re aiming next, reported plainly, with sources.</p>
           </Reveal>
 
           <dl className="mt-20 grid grid-cols-2 gap-x-6 gap-y-12 border-t border-white/15 pt-12 md:grid-cols-3">
@@ -118,7 +120,7 @@ export default function ImpactPage() {
           </h2>
           <Reveal>
             <p className="mt-6 max-w-2xl text-lede text-ink-soft">
-              Early trials tested different makeup types — powders and liquids — for paint suitability. These are some of the colours that have appeared in prototype batches so far. Each new supplier and each new trial could widen the palette.
+              Early trials tested different makeup types (powders and liquids) for paint suitability. These are some of the colours that have appeared in prototype batches so far. Each new supplier and each new trial could widen the palette.
             </p>
           </Reveal>
           <ul className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
@@ -131,9 +133,6 @@ export default function ImpactPage() {
             ))}
           </ul>
           <p className="mt-6 text-xs text-ink-soft">Colours sampled from photographs of prototype paints; on-screen colour is approximate. Colour range is still being validated.</p>
-          <div className="mt-10">
-            <LinkButton href="/shop#studio" variant="navy" arrow>Imagine your own shade</LinkButton>
-          </div>
         </div>
       </section>
 
@@ -163,7 +162,7 @@ export default function ImpactPage() {
               <ul className="mt-8 space-y-5 text-white/90">
                 {[
                   "Validate paint quality, consistency and colour range",
-                  "Validate artist demand — including repeat demand",
+                  "Validate artist demand, including repeat demand",
                   "Launch one artist project per month",
                   "Develop a consistent, market-ready product, packaging and labels",
                   "Scale manufacturing through strategic partnerships",
@@ -184,7 +183,7 @@ export default function ImpactPage() {
           <div className="max-w-3xl rounded-[2rem] bg-white p-8">
             <h2 id="note-title" className="font-display text-2xl font-bold text-navy">A note on how we report</h2>
             <p className="mt-3 text-ink-soft">
-              Figures on this page come from ReShade’s Info Session and Enactus Humber pitch presentations. Our presentations report revenue for different periods, so we don’t show a single revenue figure here. We don’t claim specific carbon, landfill or environmental savings — we haven’t measured them yet. Figures will be updated as new results are verified.
+              Figures on this page come from ReShade’s Info Session and Enactus Humber pitch presentations. Our presentations report revenue for different periods, so we don’t show a single revenue figure here. We don’t claim specific carbon, landfill or environmental savings; we haven’t measured them yet. Figures will be updated as new results are verified.
             </p>
           </div>
         </div>

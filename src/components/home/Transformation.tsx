@@ -10,7 +10,7 @@ const STAGES = [
   {
     n: "01",
     title: "Recover",
-    body: "We work with cosmetic businesses to source suitable unwanted, expired and unsellable makeup — product that would otherwise be discarded.",
+    body: "We work with cosmetic businesses to source suitable unwanted, expired and unsellable makeup, product that would otherwise be discarded.",
     img: asset("/images/stage-makeup.jpg"),
     alt: "Pressed blush compacts with crumbled powder",
     colour: "#d00000",
@@ -18,7 +18,7 @@ const STAGES = [
   {
     n: "02",
     title: "Repurpose",
-    body: "Recoverable pigments are explored and processed, then worked into a usable paint. Not every product is suitable — testing tells us which are.",
+    body: "Recoverable pigments are explored and processed, then worked into a usable paint. Not every product is suitable; testing tells us which are.",
     img: asset("/images/stage-paste.jpg"),
     alt: "Crushed pink pigment worked into a smooth paint on a glass slab with a palette knife",
     colour: "#f8bc24",
@@ -26,7 +26,7 @@ const STAGES = [
   {
     n: "03",
     title: "Create",
-    body: "The finished paint goes to artists, who test it, explore it and use it creatively — giving forgotten pigments a second life on canvas.",
+    body: "The finished paint goes to artists, who test it, explore it and use it creatively, giving forgotten pigments a second life on canvas.",
     img: asset("/images/stage-bottle.jpg"),
     alt: "Pink paint spooned into a jar beside a finished ReShade bottle",
     colour: "#3fb75c",
