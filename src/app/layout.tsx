@@ -49,7 +49,7 @@ const jsonLd = [
     "@type": "Organization",
     name: SITE.name,
     url: SITE.url,
-    logo: { "@type": "ImageObject", url: `${SITE.url}${asset("/images/logo-reshade-dark.png")}`, width: 290, height: 290 },
+    logo: { "@type": "ImageObject", url: `${SITE.url}/images/logo-reshade-dark.png`, width: 290, height: 290 },
     description: SITE.description,
     parentOrganization: { "@type": "Organization", name: SITE.enactus.name, url: SITE.enactus.url },
   },

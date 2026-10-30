@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { SITE } from "@/data/site";
-import { asset } from "@/lib/asset";
 
-/** 1200×630 crop of jars-open.jpg, sized for link previews. */
+/**
+ * 1200×630 crop of jars-open.jpg, sized for link previews. Metadata URLs are
+ * resolved against metadataBase (SITE.url), which already includes any base
+ * path, so this must not go through asset().
+ */
 export const SOCIAL_IMAGE = {
-  url: asset("/images/og-reshade.jpg"),
+  url: "/images/og-reshade.jpg",
   width: 1200,
   height: 630,
   alt: "Jars of ReShade paint made from recovered cosmetic pigments",
