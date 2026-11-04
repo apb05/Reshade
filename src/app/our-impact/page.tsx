@@ -48,16 +48,16 @@ const AREAS = [
     stat: "reached",
     title: "People, not just products.",
     body: "Through outreach and community events, ReShade has directly reached thousands of people with a simple idea: cosmetic waste can become something creative.",
-    img: asset("/images/paint-night.jpg"),
-    alt: "Participants painting at easels during a community paint night",
+    img: asset("/images/paint-pots-overhead.jpg"),
+    alt: "Open paint pots with brushes, seen from above, ready for a community painting session",
   },
   {
     eyebrow: "Supplier relationships",
     stat: "suppliers",
     title: "Businesses engaged in greener practice.",
     body: "Local retailers, cosmetic brands and salons have been engaged through supplier outreach. We’re building ongoing relationships and exploring partnerships with businesses that generate cosmetic waste at scale.",
-    img: asset("/images/bottle-pink-event.jpg"),
-    alt: "A pink ReShade bottle at an event",
+    img: asset("/images/bottles-trio.jpg"),
+    alt: "Three ReShade bottles in blue, pink and grey, tied with twine and kraft tags",
   },
 ] as const;
 

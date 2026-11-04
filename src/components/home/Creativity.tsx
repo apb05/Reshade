@@ -14,9 +14,9 @@ export function Creativity() {
           <Reveal delay={0.2} className="absolute bottom-0 right-0 w-[55%] rotate-3 bg-white p-3 pb-12 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]">
             <figure>
               <div className="relative aspect-[279/179]">
-                <Image src={asset("/images/paint-night.jpg")} alt="Participants painting at easels during a community paint night" fill sizes="30vw" className="object-cover" />
+                <Image src={asset("/images/stage-paste.jpg")} alt="Recovered pink pigment being worked into glossy paint on a glass slab" fill sizes="30vw" className="object-cover" />
               </div>
-              <figcaption className="absolute bottom-3 left-3 right-3 font-serif text-lg italic text-ink-soft">Community paint night</figcaption>
+              <figcaption className="absolute bottom-3 left-3 right-3 font-serif text-lg italic text-ink-soft">Pigment into paint</figcaption>
             </figure>
           </Reveal>
         </div>

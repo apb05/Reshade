@@ -20,8 +20,8 @@ export const metadata: Metadata = pageMetadata({
 
 const STEPS = [
   { title: "Get in touch", body: "Tell us about your business, the cosmetics you’d like to provide, and roughly how much is available.", img: asset("/images/stage-makeup.jpg"), alt: "Unwanted pressed blush compacts" },
-  { title: "Review the products", body: "The ReShade team assesses the product types, quantities, condition and suitability before anything moves.", img: asset("/images/lab-testing.jpg"), alt: "A ReShade team member testing a sample in a lab" },
-  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred, including who handles any shipping or collection.", img: asset("/images/lab-equipment.jpg"), alt: "Prototype processing equipment from ReShade’s product development" },
+  { title: "Review the products", body: "The ReShade team assesses the product types, quantities, condition and suitability before anything moves.", img: asset("/images/stage-crush.jpg"), alt: "Crushed blush pigment being assessed on a glass slab" },
+  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred, including who handles any shipping or collection.", img: asset("/images/stage-paste.jpg"), alt: "Recovered pigment being worked into paint on a glass slab" },
   { title: "Give makeup a second life", body: "Suitable materials are directed into ReShade’s pigment recovery and paint development.", img: asset("/images/jars-open.jpg"), alt: "Open jars of ReShade paint in many colours" },
 ];
 

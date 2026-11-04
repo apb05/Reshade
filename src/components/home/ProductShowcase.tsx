@@ -6,11 +6,11 @@ import { Reveal, RevealWords } from "@/components/ui/Motion";
 import { asset } from "@/lib/asset";
 
 const SHOTS = [
-  { src: asset("/images/bottle-pink-table.jpg"), alt: "A coral pink ReShade bottle on a table with more paint bottles blurred behind", w: 1470, h: 980, caption: "Coral pink prototype" },
+  { src: asset("/images/jars-open.jpg"), alt: "Open jars of ReShade prototype paint in teal, ochre, red, plum and brown", w: 1122, h: 1402, caption: "Prototype paint jars" },
   { src: asset("/images/paint-pots-overhead.jpg"), alt: "Overhead view of open paint pots in blues, greens, reds and yellows", w: 2400, h: 1583, caption: "Testing colour range" },
   { src: asset("/images/stage-bottle.jpg"), alt: "Pink paint being spooned into a jar beside a ReShade bottle", w: 1312, h: 1199, caption: "Bottling a batch" },
   { src: asset("/images/bottles-trio.jpg"), alt: "Three ReShade bottles in blue, pink and grey, tied with twine and kraft tags", w: 1199, h: 1312, caption: "The ReShade bottle" },
-  { src: asset("/images/lab-testing.jpg"), alt: "A student in a lab coat and gloves testing a sample", w: 800, h: 451, caption: "Product testing" },
+  { src: asset("/images/stage-crush.jpg"), alt: "Crushed blush pigment being worked on a glass slab with a palette knife", w: 1536, h: 1024, caption: "Testing pigment" },
 ];
 
 const FOCUS = ["Quality", "Consistency", "Colour range", "Price", "Ease of use"];
