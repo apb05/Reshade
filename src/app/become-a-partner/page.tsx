@@ -19,10 +19,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const STEPS = [
-  { title: "Get in touch", body: "Tell us about your business, the cosmetics you’d like to provide, and roughly how much is available.", img: asset("/images/stage-makeup.jpg"), alt: "Unwanted pressed blush compacts" },
-  { title: "Review the products", body: "The ReShade team assesses the product types, quantities, condition and suitability before anything moves.", img: asset("/images/stage-crush.jpg"), alt: "Crushed blush pigment being assessed on a glass slab" },
-  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred, including who handles any shipping or collection.", img: asset("/images/stage-paste.jpg"), alt: "Recovered pigment being worked into paint on a glass slab" },
-  { title: "Give makeup a second life", body: "Suitable materials are directed into ReShade’s pigment recovery and paint development.", img: asset("/images/jars-open.jpg"), alt: "Open jars of ReShade paint in many colours" },
+  { title: "Get in touch", body: "Tell us about your business, the cosmetics you’d like to provide, and roughly how much is available.", img: asset("/images/stage-makeup-hq.jpg"), alt: "Unwanted pressed blush compacts" },
+  { title: "Review the products", body: "The ReShade team assesses the product types, quantities, condition and suitability before anything moves.", img: asset("/images/stage-crush-hq.jpg"), alt: "Crushed blush pigment being assessed on a glass slab" },
+  { title: "Arrange the transfer", body: "If accepted, we agree together how products will be transferred, including who handles any shipping or collection.", img: asset("/images/stage-paste-hq.jpg"), alt: "Recovered pigment being worked into paint on a glass slab" },
+  { title: "Give makeup a second life", body: "Suitable materials are directed into ReShade’s pigment recovery and paint development.", img: asset("/images/jars-open-hq.jpg"), alt: "Open jars of ReShade paint in many colours" },
 ];
 
 const WHO = [
@@ -69,8 +69,8 @@ export default function PartnerPage() {
             </Reveal>
           </div>
           <BeforeAfter
-            before={{ src: asset("/images/stage-makeup.jpg"), alt: "Unwanted pressed blush compacts, cracked and crumbling" }}
-            after={{ src: asset("/images/stage-bottle.jpg"), alt: "The same pink pigment as finished paint in a ReShade bottle and jar" }}
+            before={{ src: asset("/images/stage-makeup-hq.jpg"), alt: "Unwanted pressed blush compacts, cracked and crumbling" }}
+            after={{ src: asset("/images/stage-bottle-hq.jpg"), alt: "The same pink pigment as finished paint in a ReShade bottle and jar" }}
             beforeLabel="Unwanted makeup"
             afterLabel="ReShade paint"
           />
@@ -149,10 +149,10 @@ export default function PartnerPage() {
           </div>
           <ol className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: asset("/images/stage-makeup.jpg"), alt: "Unwanted blush compacts", label: "Unwanted" },
-              { src: asset("/images/stage-crush.jpg"), alt: "Pigment being crushed with a palette knife", label: "Recovered" },
-              { src: asset("/images/stage-paste.jpg"), alt: "Pigment mixed into a smooth pink paint", label: "Repurposed" },
-              { src: asset("/images/stage-bottle.jpg"), alt: "Finished pink paint in a ReShade bottle", label: "Reimagined" },
+              { src: asset("/images/stage-makeup-hq.jpg"), alt: "Unwanted blush compacts", label: "Unwanted" },
+              { src: asset("/images/stage-crush-hq.jpg"), alt: "Pigment being crushed with a palette knife", label: "Recovered" },
+              { src: asset("/images/stage-paste-hq.jpg"), alt: "Pigment mixed into a smooth pink paint", label: "Repurposed" },
+              { src: asset("/images/stage-bottle-hq.jpg"), alt: "Finished pink paint in a ReShade bottle", label: "Reimagined" },
             ].map((s, i) => (
               <Reveal as="li" key={s.src} delay={i * 0.12} className={i % 2 ? "md:mt-16" : ""}>
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem]">

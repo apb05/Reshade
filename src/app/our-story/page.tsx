@@ -68,7 +68,7 @@ export default function StoryPage() {
       <section aria-hidden className="relative h-[60svh] overflow-hidden">
         <Parallax amount={70} className="absolute inset-0">
           <div className="relative h-[120%] w-full -translate-y-[10%]">
-            <Image src={asset("/images/jars-open.jpg")} alt="" fill sizes="100vw" className="object-cover" />
+            <Image src={asset("/images/jars-open-hq.jpg")} alt="" fill sizes="100vw" className="object-cover" />
           </div>
         </Parallax>
       </section>
@@ -177,7 +177,7 @@ export default function StoryPage() {
       <section aria-labelledby="personal-title" className="bg-paper py-24 sm:py-32">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem]">
-            <Image src={asset("/images/paint-pots-overhead.jpg")} alt="Open paint pots in many colours, seen from above" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+            <Image src={asset("/images/paint-pots-overhead-hq.jpg")} alt="Open paint pots in many colours, seen from above" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
           </Reveal>
           <div>
             <p className="eyebrow text-red">Where you come in</p>

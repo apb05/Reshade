@@ -32,7 +32,7 @@ const AREAS = [
     stat: "diverted",
     title: "Makeup redirected, not thrown out.",
     body: "Unwanted, expired and unsellable cosmetic products have been diverted toward pigment recovery, products that would otherwise have been discarded.",
-    img: asset("/images/stage-makeup.jpg"),
+    img: asset("/images/stage-makeup-hq.jpg"),
     alt: "Unwanted pressed blush compacts",
   },
   {
@@ -40,7 +40,7 @@ const AREAS = [
     stat: "produced",
     title: "Hundreds of prototype paints.",
     body: "Recovered pigments have been turned into bottles and jars of paint during product development. These are prototypes, made while we validate quality and consistency, not industrial-scale manufacturing.",
-    img: asset("/images/jars-open.jpg"),
+    img: asset("/images/jars-open-hq.jpg"),
     alt: "Open jars of ReShade paint",
   },
   {
@@ -48,7 +48,7 @@ const AREAS = [
     stat: "reached",
     title: "People, not just products.",
     body: "Through outreach and community events, ReShade has directly reached thousands of people with a simple idea: cosmetic waste can become something creative.",
-    img: asset("/images/paint-pots-overhead.jpg"),
+    img: asset("/images/paint-pots-overhead-hq.jpg"),
     alt: "Open paint pots with brushes, seen from above, ready for a community painting session",
   },
   {
@@ -56,7 +56,7 @@ const AREAS = [
     stat: "suppliers",
     title: "Businesses engaged in greener practice.",
     body: "Local retailers, cosmetic brands and salons have been engaged through supplier outreach. We’re building ongoing relationships and exploring partnerships with businesses that generate cosmetic waste at scale.",
-    img: asset("/images/bottles-trio.jpg"),
+    img: asset("/images/bottles-trio-hq.jpg"),
     alt: "Three ReShade bottles in blue, pink and grey, tied with twine and kraft tags",
   },
 ] as const;

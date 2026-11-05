@@ -9,12 +9,12 @@ export function Creativity() {
       <div className="container-x grid items-center gap-16 lg:grid-cols-2">
         <div className="relative order-2 h-[32rem] sm:h-[38rem] lg:order-1">
           <Parallax amount={40} className="absolute left-0 top-0 h-[78%] w-[78%] overflow-hidden rounded-[2.5rem]">
-            <Image src={asset("/images/paint-pots-overhead.jpg")} alt="Overhead view of open paint pots in a rainbow of colours" fill sizes="(min-width:1024px) 40vw, 80vw" className="scale-110 object-cover" />
+            <Image src={asset("/images/paint-pots-overhead-hq.jpg")} alt="Overhead view of open paint pots in a rainbow of colours" fill sizes="(min-width:1024px) 40vw, 80vw" className="scale-110 object-cover" />
           </Parallax>
           <Reveal delay={0.2} className="absolute bottom-0 right-0 w-[55%] rotate-3 bg-white p-3 pb-12 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]">
             <figure>
               <div className="relative aspect-[279/179]">
-                <Image src={asset("/images/stage-paste.jpg")} alt="Recovered pink pigment being worked into glossy paint on a glass slab" fill sizes="30vw" className="object-cover" />
+                <Image src={asset("/images/stage-paste-hq.jpg")} alt="Recovered pink pigment being worked into glossy paint on a glass slab" fill sizes="30vw" className="object-cover" />
               </div>
               <figcaption className="absolute bottom-3 left-3 right-3 font-serif text-lg italic text-ink-soft">Pigment into paint</figcaption>
             </figure>

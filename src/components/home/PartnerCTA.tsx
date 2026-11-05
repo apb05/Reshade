@@ -13,7 +13,7 @@ export function PartnerCTA({
   return (
     <section aria-label="Partner with ReShade" className="relative isolate overflow-hidden bg-navy text-white">
       <div aria-hidden className="absolute inset-0 -z-10">
-        <Image src={asset("/images/paint-pots-overhead.jpg")} alt="" fill sizes="100vw" className="object-cover opacity-35" />
+        <Image src={asset("/images/paint-pots-overhead-hq.jpg")} alt="" fill sizes="100vw" className="object-cover opacity-35" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/40" />
       </div>
       <Image src={asset("/images/bottle-yellow.png")} alt="" aria-hidden width={444} height={882} className="pointer-events-none absolute -bottom-10 right-[6%] hidden h-[80%] w-auto rotate-6 drop-shadow-[0_40px_50px_rgba(0,0,0,0.5)] lg:block" />

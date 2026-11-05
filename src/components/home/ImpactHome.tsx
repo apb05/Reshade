@@ -56,7 +56,7 @@ export function ImpactHome() {
           </Reveal>
 
           <Reveal delay={0.1} className="relative min-h-72 overflow-hidden rounded-[2.5rem] lg:col-span-5">
-            <Image src={asset("/images/jars-open.jpg")} alt="Open jars of ReShade paint in teal, ochre, red, plum and brown" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
+            <Image src={asset("/images/jars-open-hq.jpg")} alt="Open jars of ReShade paint in teal, ochre, red, plum and brown" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
           </Reveal>
           <Reveal delay={0.14} className="flex flex-col justify-end rounded-[2.5rem] border-2 border-navy/10 p-8 lg:col-span-7">
             <CountUp value={suppliers.value} className="block font-display text-7xl font-extrabold tracking-tighter text-navy sm:text-8xl" />

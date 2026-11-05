@@ -36,7 +36,7 @@ export function Hero() {
     >
       {/* Macro paint photograph, deeply toned into the navy */}
       <motion.div aria-hidden className="absolute inset-0 -z-10" style={{ scale: reduce ? 1.05 : photoScale }}>
-        <Image src={asset("/images/jars-open.jpg")} alt="" fill priority sizes="100vw" className="object-cover object-center opacity-30 mix-blend-luminosity" />
+        <Image src={asset("/images/jars-open-hq.jpg")} alt="" fill priority sizes="100vw" className="object-cover object-center opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_75%_45%,rgba(0,38,92,0.25),rgba(0,24,56,0.92)_70%)]" />
       </motion.div>
 

@@ -19,9 +19,9 @@ export function Problem() {
     <section id="discover" aria-labelledby="problem-title" className="grain scroll-mt-16 bg-paper">
       <div ref={ref} className="grid lg:min-h-[100svh] lg:grid-cols-2">
         <div className="relative min-h-[60svh] overflow-hidden bg-cream lg:sticky lg:top-0 lg:h-[100svh]">
-          <Image src={asset("/images/stage-makeup.jpg")} alt="Pressed blush compacts, cracked and crumbled, makeup that would otherwise be thrown away" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+          <Image src={asset("/images/stage-makeup-hq.jpg")} alt="Pressed blush compacts, cracked and crumbled, makeup that would otherwise be thrown away" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           <motion.div className="absolute inset-0" style={{ clipPath: reduce ? "inset(0 0 100% 0)" : clip }}>
-            <Image src={asset("/images/stage-paste.jpg")} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+            <Image src={asset("/images/stage-paste-hq.jpg")} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           </motion.div>
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/45 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-white">
