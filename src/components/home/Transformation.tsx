@@ -18,7 +18,7 @@ const STAGES = [
   {
     n: "02",
     title: "Repurpose",
-    body: "Recoverable pigments are explored and processed, then worked into a usable paint. Not every product is suitable; testing tells us which are.",
+    body: "Recoverable pigments are explored and processed, then worked into a usable paint. We collect all types of makeup products, including powder, liquid and cream formulations.",
     img: asset("/images/stage-paste-hq.jpg"),
     alt: "Crushed pink pigment worked into a smooth paint on a glass slab with a palette knife",
     colour: "#f8bc24",
@@ -85,7 +85,6 @@ export function Transformation() {
             ))}
           </ol>
         </div>
-        <p className="mt-16 max-w-2xl text-sm text-white/55">Not every cosmetic product can be turned into paint. Suitability depends on the product type and condition, and ReShade is still validating quality and consistency.</p>
       </div>
     </section>
   );

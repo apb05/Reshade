@@ -64,7 +64,6 @@ export function ImpactHome() {
             <p className="mt-1 max-w-lg text-ink-soft">Engagement through supplier outreach, not formal partnerships.</p>
           </Reveal>
         </div>
-        <p className="mt-8 text-sm text-ink-soft">Figures as reported in ReShade’s Info Session and Enactus Humber pitch presentations.</p>
       </div>
     </section>
   );

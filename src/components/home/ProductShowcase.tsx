@@ -56,8 +56,7 @@ export function ProductShowcase() {
             </li>
           ))}
         </ul>
-        <div className="container-x mt-6 flex items-center justify-between gap-4">
-          <p className="max-w-lg text-sm text-ink-soft">ReShade paints are in active development and not yet commercially certified.</p>
+        <div className="container-x mt-6 flex items-center justify-end gap-4">
           <div className="flex gap-2">
             <button type="button" onClick={() => nudge(-1)} className="grid size-12 place-items-center rounded-full border-2 border-navy/15 text-navy transition hover:bg-navy hover:text-white" aria-label="Previous photos">←</button>
             <button type="button" onClick={() => nudge(1)} className="grid size-12 place-items-center rounded-full border-2 border-navy/15 text-navy transition hover:bg-navy hover:text-white" aria-label="Next photos">→</button>

@@ -104,7 +104,6 @@ export default function ImpactPage() {
                 <p className="mt-1 font-semibold text-ink">{stat.label}</p>
                 <h2 id={`area-${i}`} className="mt-8 font-display text-3xl font-bold text-navy sm:text-4xl">{a.title}</h2>
                 <Reveal><p className="mt-4 max-w-lg text-lede text-ink-soft">{a.body}</p></Reveal>
-                <p className="mt-6 text-xs text-ink-soft">Source: {stat.source}</p>
               </div>
             </div>
           </section>
@@ -132,7 +131,6 @@ export default function ImpactPage() {
               </Reveal>
             ))}
           </ul>
-          <p className="mt-6 text-xs text-ink-soft">Colours sampled from photographs of prototype paints; on-screen colour is approximate. Colour range is still being validated.</p>
         </div>
       </section>
 

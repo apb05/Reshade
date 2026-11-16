@@ -8,12 +8,10 @@ export const SITE = {
   /** Only links that appear in the source presentations are listed here. */
   enactus: { name: "Enactus Humber Polytechnic", url: "https://www.enactushumber.com" },
   /**
-   * Verified contact channels. The presentations do not publish an email
-   * address, phone number or social accounts, so none are shown. Add them
-   * here once confirmed and they will appear in the footer and Contact page.
+   * Contact channels. The email is shown in the footer and on the Contact page.
    */
   contact: {
-    email: null as string | null,
+    email: "reshadehumber@gmail.com" as string | null,
     socials: [] as { label: string; href: string }[],
   },
 };

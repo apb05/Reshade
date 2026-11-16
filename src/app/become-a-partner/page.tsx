@@ -125,11 +125,6 @@ export default function PartnerPage() {
               </ul>
             </Reveal>
           </div>
-          <Reveal>
-            <p className="mt-6 max-w-4xl rounded-2xl bg-white/70 px-5 py-4 text-sm text-ink-soft">
-              <strong className="text-ink">Good to know:</strong> not every cosmetic product can be accepted. Eligibility, quantities and collection or shipping arrangements, including who covers any transport costs, are confirmed with you before any materials are accepted. ReShade doesn’t guarantee specific cost savings.
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -257,7 +252,6 @@ export default function PartnerPage() {
             ))}
           </ol>
         </div>
-        <p className="container-x mt-10 text-xs text-ink-soft">Partnering with ReShade does not guarantee specific ESG outcomes, regulatory compliance, certifications or cost savings.</p>
       </section>
 
       {/* 7. Form */}

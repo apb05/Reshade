@@ -58,7 +58,7 @@ export default function StoryPage() {
           </div>
           <Reveal delay={0.4}>
             <p className="text-lede text-ink-soft">
-              ReShade transforms expired makeup into usable paint, giving cosmetic waste a second life. It’s a student-led initiative with Enactus Humber Polytechnic, built around a simple idea: reuse the makeup itself, not just the packaging.
+              ReShade transforms expired and unwanted makeup products into usable paint, giving cosmetic waste a second life. It’s a student-led initiative with Enactus Humber Polytechnic, built around a simple idea: reuse the makeup itself, not just the packaging.
             </p>
           </Reveal>
         </div>
@@ -83,7 +83,7 @@ export default function StoryPage() {
             </h2>
             <Reveal>
               <p className="mt-6 text-lede text-ink-soft">
-                Expired makeup is often thrown away even though it still contains usable pigments and materials. Millions of cosmetic products and their packaging end up as waste.
+                Expired and unwanted makeup products are often thrown away even though they still contain usable pigments and materials. Millions of cosmetic products and their packaging end up as waste.
               </p>
               <p className="mt-5 text-ink-soft">
                 Programs at major beauty retailers and brands collect and recycle <em>packaging</em>. Far fewer look for a new use for the makeup inside.
@@ -97,7 +97,7 @@ export default function StoryPage() {
             </h2>
             <Reveal>
               <p className="mt-6 text-lede text-ink-soft">
-                ReShade takes expired makeup and repurposes its pigments into paint. That turns a waste stream into something useful, and into something beautiful.
+                ReShade takes expired and unwanted makeup products and repurposes their pigments into paint. That turns a waste stream into something useful, and into something beautiful.
               </p>
               <p className="mt-5 text-ink-soft">
                 We started with artists because they use paints and pigments every day. Working directly with them lets us improve the product based on real-world use, then refine it before expanding to a larger consumer market.
@@ -134,7 +134,6 @@ export default function StoryPage() {
               <CountUp value={hours.value} suffix={hours.suffix} className="block font-display text-6xl font-extrabold text-yellow" />
               <p className="mt-2 text-white/75">{hours.label}</p>
             </Reveal>
-            <p className="col-span-2 text-xs text-white/50">As reported in the Enactus Humber pitch presentation.</p>
           </div>
         </div>
       </section>
